@@ -1,0 +1,68 @@
+# Local acceptance stack. The Firestore emulator itself is ephemeral.
+services:
+  firestore:
+    image: eclipse-temurin:21-jre
+    command: [java, -Xmx1g, -jar, /emulators/cloud-firestore-emulator-v1.22.0.jar, --host=0.0.0.0, --port=8080, --project_id=pgfire-local]
+    volumes: ['./.cache:/emulators:ro']
+    ports: ['127.0.0.1:58080:8080']
+    healthcheck:
+      test: [CMD, bash, -c, 'echo > /dev/tcp/127.0.0.1/8080']
+      interval: 2s
+      timeout: 2s
+      retries: 60
+  engine:
+    build: .
+    image: pgfire:local
+    environment:
+      FIRESTORE_EMULATOR_HOST: firestore:8080
+      PGFIRE_PROJECT: pgfire-local
+      PGFIRE_NAMESPACE: penpot
+      PGFIRE_PASSWORD: pgfire-local-test
+      PGFIRE_CHECKPOINT_ON_RECOVERY: '1'
+    ports: ['127.0.0.1:55434:5432']
+    depends_on:
+      firestore: {condition: service_healthy}
+    healthcheck:
+      test: [CMD, pg_isready, -h, '127.0.0.1', -p, '5432', -U, penpot, -d, penpot]
+      interval: 2s
+      timeout: 2s
+      retries: 300
+    # Never mount PGDATA: recovery must reconstruct it from Firestore.
+  valkey:
+    image: valkey/valkey:8.1
+    command: [valkey-server, --save, '', --appendonly, 'no']
+  backend:
+    image: penpotapp/backend:2.18.0
+    environment:
+      PENPOT_DATABASE_URI: postgresql://engine:5432/penpot
+      PENPOT_DATABASE_USERNAME: penpot
+      PENPOT_DATABASE_PASSWORD: pgfire-local-test
+      PENPOT_REDIS_URI: redis://valkey/0
+      PENPOT_PUBLIC_URI: http://localhost:59001
+      PENPOT_SECRET_KEY: pgfire-local-acceptance-only-key
+      PENPOT_FLAGS: disable-email-verification disable-secure-session-cookies enable-login-with-password enable-registration disable-telemetry
+      PENPOT_TELEMETRY_ENABLED: 'false'
+      PENPOT_OBJECTS_STORAGE_BACKEND: fs
+      PENPOT_OBJECTS_STORAGE_FS_DIRECTORY: /opt/data/assets
+    volumes: ['assets:/opt/data/assets']
+    depends_on:
+      engine: {condition: service_healthy}
+      valkey: {condition: service_started}
+  exporter:
+    image: penpotapp/exporter:2.18.0
+    environment:
+      PENPOT_PUBLIC_URI: http://frontend:8080
+      PENPOT_INTERNAL_URI: http://frontend:8080
+      PENPOT_REDIS_URI: redis://valkey/0
+      PENPOT_SECRET_KEY: pgfire-local-acceptance-only-key
+  frontend:
+    image: penpotapp/frontend:2.18.0
+    ports: ['127.0.0.1:59001:8080']
+    environment:
+      PENPOT_BACKEND_URI: http://backend:6060
+      PENPOT_EXPORTER_URI: http://exporter:6061
+      PENPOT_FLAGS: disable-email-verification disable-secure-session-cookies enable-login-with-password enable-registration disable-telemetry
+    volumes: ['assets:/opt/data/assets:ro']
+    depends_on: [backend, exporter]
+volumes:
+  assets:

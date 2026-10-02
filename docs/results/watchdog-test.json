@@ -1,0 +1,7 @@
+{
+  "namespace": "watchdog-5e46c8f05eb6",
+  "receiver_signal": "SIGSTOP",
+  "lease_remaining_seconds": 79.883187167,
+  "sql_stopped_after_seconds": 81.192501583,
+  "passed": true
+}

@@ -1,0 +1,11 @@
+.cache
+.venv
+.git
+build*
+artifacts
+docs
+__pycache__
+.env*
+*.pem
+*.key
+.github

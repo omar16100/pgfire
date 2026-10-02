@@ -1,0 +1,42 @@
+[
+  {
+    "cycle": 1,
+    "rootfs_deleted": true,
+    "recovery_seconds": 303.02804220900003,
+    "before_timeline": "2",
+    "after_timeline": "3",
+    "payload_bytes": 3145865,
+    "sha256": "95745256b74d551910c91a365b5fb0186120376f71f1c7dbc7aba325017eab2b",
+    "verified_rows": 1,
+    "penpot_row_counts": {
+      "migrations": 162,
+      "profile": 0,
+      "team": 0,
+      "project": 0,
+      "file": 0,
+      "comment": 0
+    },
+    "checkpoint": false,
+    "passed": true
+  },
+  {
+    "cycle": 2,
+    "rootfs_deleted": true,
+    "recovery_seconds": 143.20847050000003,
+    "before_timeline": "3",
+    "after_timeline": "4",
+    "payload_bytes": 3145865,
+    "sha256": "7ca72c9a2ded97b93a1a16e22c2e27ff13cdec6c9fd433da3762027630400db8",
+    "verified_rows": 2,
+    "penpot_row_counts": {
+      "migrations": 162,
+      "profile": 0,
+      "team": 0,
+      "project": 0,
+      "file": 0,
+      "comment": 0
+    },
+    "checkpoint": false,
+    "passed": true
+  }
+]

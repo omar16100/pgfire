@@ -1,0 +1,10 @@
+test_cancel_does_not_acknowledge_unflushed_commit (__main__.EngineTests) ... ok
+test_concurrent_upsert (__main__.EngineTests) ... ok
+test_durability_cannot_be_disabled (__main__.EngineTests) ... ok
+test_large_transaction (__main__.EngineTests) ... ok
+test_skip_locked (__main__.EngineTests) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 8.969s
+
+OK

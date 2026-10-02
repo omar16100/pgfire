@@ -1,0 +1,13 @@
+{
+  "engine_image": "sha256:28423f43de3be1fabb31b51fe214a41fc21dfcc4bee49eaa891922abfabc9c99",
+  "source_sha256": {
+    "CMakeLists.txt": "46855c0a921d9e9470366d938ed36f1d7465f04686eeaa99005c0d3b4afe7b4e",
+    "Dockerfile": "3918cacc55bb3b380429dc9437727c266d908a03fdd2746aad673a3fbade371e",
+    "include/pgfire.h": "b1d92c0dc91e2ce5259d4af0c2b688f733661fd5c0c9b5414c18c88df6a7b051",
+    "src/guard/pgfire_guard.c": "223a953c88f4691deba0daa73974d4ae97b5d0df2ad2a919866534486fdfa7a6",
+    "src/main.c": "31aa528ca985488d7adb2dd2370af399acac939486af6edef47c21ec8548d8d8",
+    "src/replication.c": "bce717196c13f4fc713aa0eb9d4fca0a9c1832d3cd5e64432e9b1315efb475d3",
+    "src/store.c": "cb0a774550e23951cbde55ee6a4cfa6cf44c68dd4e08ac1bea353391ac6cd725",
+    "tools/runtime.py": "bbcef272e482065b752cf095edb9a29b2b3caa014109f92a13f93b24393b79ba"
+  }
+}

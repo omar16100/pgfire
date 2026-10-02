@@ -1,0 +1,17 @@
+.cache/
+.venv/
+build*/
+__pycache__/
+.DS_Store
+artifacts/
+*.log
+docs/plans/
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.pyc
+*.o
+*.so
+*.dylib

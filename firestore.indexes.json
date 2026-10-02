@@ -1,0 +1,9 @@
+{
+  "indexes": [],
+  "fieldOverrides": [
+    {"collectionGroup": "chunks", "fieldPath": "*", "indexes": []},
+    {"collectionGroup": "objects", "fieldPath": "*", "indexes": []},
+    {"collectionGroup": "wal", "fieldPath": "*", "indexes": []},
+    {"collectionGroup": "meta", "fieldPath": "*", "indexes": []}
+  ]
+}

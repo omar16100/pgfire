@@ -1,0 +1,83 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "method": "prepare-register-profile",
+      "status": 200
+    },
+    {
+      "method": "register-profile",
+      "status": 200
+    },
+    {
+      "method": "login-with-password",
+      "status": 200
+    },
+    {
+      "method": "create-team",
+      "status": 200
+    },
+    {
+      "method": "create-project",
+      "status": 200
+    },
+    {
+      "method": "create-file",
+      "status": 200
+    },
+    {
+      "method": "login-with-password",
+      "status": 200
+    },
+    {
+      "method": "get-file",
+      "status": 200
+    },
+    {
+      "method": "update-file",
+      "status": 200
+    },
+    {
+      "method": "get-file",
+      "status": 200
+    },
+    {
+      "method": "create-comment-thread",
+      "status": 200
+    },
+    {
+      "method": "get-comments",
+      "status": 200
+    },
+    {
+      "method": "login-with-password",
+      "status": 200
+    },
+    {
+      "method": "get-file",
+      "status": 200
+    },
+    {
+      "method": "update-file",
+      "status": 200
+    },
+    {
+      "method": "get-file",
+      "status": 200
+    },
+    {
+      "method": "create-comment-thread",
+      "status": 200
+    },
+    {
+      "method": "get-comments",
+      "status": 200
+    },
+    {
+      "method": "export-binfile",
+      "status": 200
+    }
+  ],
+  "export_bytes": 4159,
+  "export_sha256": "e0c1c44cd9307613dccd9a98bd920669ad82e4c72a40d90141b9abfcd5e56b45"
+}

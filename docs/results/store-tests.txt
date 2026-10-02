@@ -1,0 +1,9 @@
+test_checksum_corruption_is_rejected_and_partial_output_removed (__main__.StoreTests) ... ok
+test_existing_output_is_not_overwritten (__main__.StoreTests) ... ok
+test_objects_over_request_limit_and_empty (__main__.StoreTests) ... ok
+test_second_owner_is_rejected_and_token_can_be_adopted (__main__.StoreTests) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 8.014s
+
+OK

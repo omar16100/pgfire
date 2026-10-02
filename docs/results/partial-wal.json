@@ -1,0 +1,12 @@
+{
+  "namespace": "tail-804ade206672",
+  "wal_bytes_after_acknowledged_row": 1042528,
+  "passed": true,
+  "recovery_seconds": 73.838989833,
+  "confirmed_row_survived": true,
+  "uncommitted_row_absent": true,
+  "observed_end_before_kill": "0/1DC0000",
+  "published_end_after_kill": "0/1E60000",
+  "recovery_fork": "0/1E5FF98",
+  "incomplete_tail_bytes": 104
+}
